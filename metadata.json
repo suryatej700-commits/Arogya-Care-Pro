@@ -1,0 +1,6 @@
+{
+  "name": "Arogya Care Pro",
+  "description": "Crop health guidance, in every farmer’s language. AI-assisted Tomato and Chili leaf screening and care guidance.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
