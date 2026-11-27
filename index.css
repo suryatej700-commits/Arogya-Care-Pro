@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', 'Noto Sans Telugu', 'Noto Sans Devanagari', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #F7F6F2;
+    color: #1C231F;
+  }
+
+  h1, h2, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-nums {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Overview Hero subtle parallax and drifting leaf motion */
+@keyframes heroSlowDrift {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.045) translate3d(-0.8%, -0.5%, 0);
+  }
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes leafFloatSlow {
+  0% {
+    transform: translate3d(0, -10px, 0) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.16;
+  }
+  80% {
+    opacity: 0.14;
+  }
+  100% {
+    transform: translate3d(42px, 95px, 0) rotate(22deg);
+    opacity: 0;
+  }
+}
+
+.hero-parallax-active {
+  animation: heroSlowDrift 24s ease-in-out infinite;
+}
+
+.hero-leaf-drift-1 {
+  animation: leafFloatSlow 16s ease-in-out infinite;
+}
+
+.hero-leaf-drift-2 {
+  animation: leafFloatSlow 21s ease-in-out 5s infinite;
+}
+
+.hero-leaf-drift-3 {
+  animation: leafFloatSlow 19s ease-in-out 10s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-parallax-active,
+  .hero-leaf-drift-1,
+  .hero-leaf-drift-2,
+  .hero-leaf-drift-3 {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-container {
+    box-shadow: none !important;
+    border: 1px solid #d1d5db !important;
+  }
+}
